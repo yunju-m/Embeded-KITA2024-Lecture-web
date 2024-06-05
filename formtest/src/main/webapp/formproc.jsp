@@ -1,0 +1,40 @@
+<% 
+	String txt = request.getParameter("txt");
+	String pwd = request.getParameter("pwd");
+	String tel = request.getParameter("tel");
+	String email = request.getParameter("email");
+	String date = request.getParameter("date");
+	String time = request.getParameter("time");
+	String datetimelocal = request.getParameter("datetimelocal");
+	String number = request.getParameter("number");
+	String range = request.getParameter("range");
+	String button = request.getParameter("button");
+	String file = request.getParameter("file");
+	String color = request.getParameter("color");
+	String rdo = request.getParameter("rdo");
+	String hobbybox1 = request.getParameter("hobbybox1");
+	String hobbybox2 = request.getParameter("hobbybox2");
+	String hobbybox3 = request.getParameter("hobbybox3");
+	String slt = request.getParameter("slt");
+	String ta = request.getParameter("ta");
+
+	System.out.println("data transfer start!");
+	out.print("text : " + txt);
+	out.print("pwd : " + pwd);
+	out.print("tel : " + tel);
+	out.print("email : " + email);
+	out.print("date : " + date);
+	out.print("time : " + time);
+	out.print("datetimelocal : " + datetimelocal);
+	out.print("number : " + number);
+	out.print("range : " + range);
+	out.print("button : " + button);
+	out.print("file : " + file);
+	out.print("color : " + color);
+	out.print("rdo : " + rdo);
+	out.print("hobbybox1 : " + hobbybox1);
+	out.print("hobbybox2 : " + hobbybox2);
+	out.print("hobbybox3 : " + hobbybox3);
+	out.print("slt : " + slt);
+	out.print("ta : " + ta);
+%>
