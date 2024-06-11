@@ -1,0 +1,17 @@
+table {
+	width: 620px;
+}
+
+table, th, td {
+	border: 1px solid #333;
+	border-collapse: collapse;
+}
+
+caption {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+thead {
+	background-color: #eee;
+}
