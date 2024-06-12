@@ -22,13 +22,26 @@ window.onload = function() {
 			const xhr = new XMLHttpRequest();
 			xhr.open("POST", "http://localhost:8888/ajaxtest/score.jsp", true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send(`s1name=${s1name}&s1kor=${s1kor}&s1eng=${s1eng}&s1math=${s1math}
-				&s2name=${s2name}&s2kor=${s2kor}&s2eng=${s2eng}&s2math=${s2math}
-				&s3name=${s3name}&s3kor=${s3kor}&s3eng=${s3eng}&s3math=${s3math}`);
+			xhr.send(`s1name=${s1name}&s1kor=${s1kor}&s1eng=${s1eng}&s1math=${s1math}&s2name=${s2name}&s2kor=${s2kor}&s2eng=${s2eng}&s2math=${s2math}&s3name=${s3name}&s3kor=${s3kor}&s3eng=${s3eng}&s3math=${s3math}`);
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4 && xhr.status == 200) {
-					const jsonText = xhr.responseText;
-					console.log(jsonText);
+					const studentjsonText = xhr.responseText;
+					const studentjsonObj = JSON.parse(studentjsonText);
+					const studentjsonObjLen = studentjsonObj.length;
+					let trs = "";
+					for (let i = 0; i < studentjsonObjLen; i++){
+						const student = studentjsonObj[i];
+						const total = Number(student.kor) + Number(student.eng) + Number(student.math);
+						trs += `
+						<tr>
+							<td>${student.name}</td>
+							<td>${student.kor}</td>
+							<td>${student.eng}</td>
+							<td>${student.math}</td>
+							<td>${total}</td>
+						</tr>`;
+					}
+					document.getElementsByTagName("TBODY")[0].innerHTML = trs;
 				}
 			}		
 		}
