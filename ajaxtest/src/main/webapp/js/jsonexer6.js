@@ -22,7 +22,9 @@ window.onload = function() {
 			const xhr = new XMLHttpRequest();
 			xhr.open("POST", "http://localhost:8888/ajaxtest/score.jsp", true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-			xhr.send(`s1name=${s1name}&s1kor=${s1kor}&s1eng=${s1eng}&s1math=${s1math}&s2name=${s2name}&s2kor=${s2kor}&s2eng=${s2eng}&s2math=${s2math}&s3name=${s3name}&s3kor=${s3kor}&s3eng=${s3eng}&s3math=${s3math}`);
+			xhr.send(`s1name=${s1name}&s1kor=${s1kor}&s1eng=${s1eng}&s1math=${s1math}`
+			+`&s2name=${s2name}&s2kor=${s2kor}&s2eng=${s2eng}&s2math=${s2math}`
+			+`&s3name=${s3name}&s3kor=${s3kor}&s3eng=${s3eng}&s3math=${s3math}`);
 			xhr.onreadystatechange = function() {
 				if (xhr.readyState == 4 && xhr.status == 200) {
 					const studentjsonText = xhr.responseText;
