@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center; /* Center align the container content */
+}
+
+.title {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.button-primary {
+    display: inline-block; /* Make button inline-block for easier positioning */
+    margin: 20px auto;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-primary:hover {
+    background-color: #45a049;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    margin: 0 auto; /* Center the table wrapper */
+}
+
+table {
+    margin: 20px auto; /* Center the table */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+table caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
+}
+
+table th,
+table td {
+    padding: 15px;
+    text-align: center;
+}
+
+table th {
+    background-color: #000; /* Set background color of table headers to black */
+    color: #fff; /* Set text color of table headers to white */
+}
+
+table td {
+    border-top: 1px solid #f2f2f2;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate background color for even rows */
+}
