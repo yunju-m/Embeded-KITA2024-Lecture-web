@@ -20,7 +20,7 @@ window.onload = function() {
 			const s3math = document.getElementById("s3math").value;
 			
 			const xhr = new XMLHttpRequest();
-			xhr.open("POST", "http://localhost:8888/ajaxtest/score.jsp", true);
+			xhr.open("POST", "http://localhost:8888/score.jsp", true);
 			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 			xhr.send(`s1name=${s1name}&s1kor=${s1kor}&s1eng=${s1eng}&s1math=${s1math}`
 			+`&s2name=${s2name}&s2kor=${s2kor}&s2eng=${s2eng}&s2math=${s2math}`
