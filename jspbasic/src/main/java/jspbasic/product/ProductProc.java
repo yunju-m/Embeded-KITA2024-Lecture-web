@@ -46,7 +46,7 @@ public class ProductProc {
 	}
 	
 	// 상품 등록
-	public void insertProduct(Product product) throws SQLException {
+	public int insertProduct(Product product) throws SQLException {
 		String sql = " { call PROC_INSERT_PRODUCT(?, ?, ?, ?, ?, ?) } ";
 		cstmt = conn.prepareCall(sql);
 		cstmt.setString(1, product.getPcomp());
@@ -55,12 +55,13 @@ public class ProductProc {
 		cstmt.setInt(4, product.getPamt());
 		cstmt.setInt(5, product.getPprice());
 		cstmt.setDate(6, product.getPmdate());
-		cstmt.executeUpdate();
+		int result = cstmt.executeUpdate();
 		cstmt.close();
+		return result;
 	}
 	
 	// 상품 수정
-	public void updateProduct(Product product) throws SQLException {
+	public int updateProduct(Product product) throws SQLException {
 		String sql = " { call PROC_UPDATE_PRODUCT(?, ?, ?, ?, ?, ?, ?) } ";
 		cstmt = conn.prepareCall(sql);
 		cstmt.setInt(1, product.getPno());
@@ -70,16 +71,18 @@ public class ProductProc {
 		cstmt.setInt(5, product.getPamt());
 		cstmt.setInt(6, product.getPprice());
 		cstmt.setDate(7, product.getPmdate());
-		cstmt.executeUpdate();
+		int result = cstmt.executeUpdate();
 		cstmt.close();
+		return result;
 	}
 	
 	// 상품 삭제
-	public void deleteProduct(int pno) throws SQLException {
+	public int deleteProduct(int pno) throws SQLException {
 		String sql = " { call PROC_DELETE_PRODUCT(?) } ";
 		cstmt = conn.prepareCall(sql);		
 		cstmt.setInt(1, pno);
-		cstmt.executeUpdate();
+		int result = cstmt.executeUpdate();
 		cstmt.close();
+		return result;
 	}
 }
