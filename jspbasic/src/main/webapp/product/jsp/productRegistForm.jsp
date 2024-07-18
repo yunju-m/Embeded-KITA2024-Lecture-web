@@ -5,23 +5,46 @@
 <head>
 <meta charset="UTF-8">
 <title>상품등록화면</title>
-<link rel="stylesheet" href="../css/product.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/productForm.css">
 <script src="../js/product.js"></script>
 </head>
 <body>
-	<div id="wrapper">
-		<div class="product-container">
-			<h2>상품 등록</h2>
-			<form method="post" action="productRegistProc.jsp">
-				회사명 : <input type="text" name="pcomp" /><br />
-				상품명 : <input type="text" name="pname" /><br />
-				색상 : <input type="color" name="pcolor" /><br />
-				수량 : <input type="text" name="pamt" /><br />
-				가격 : <input type="text" name="pprice" /><br />
-				제조일시 : <input type="date" name="pmdate" /><br />
-				<input type="submit" value="확인" />
-			</form>
-		</div>
-	</div>
+	<div class="regist-container">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">상품 등록</h2>
+                <form method="post" action="productRegistProc.jsp">
+                    <div class="form-group">
+                        <label>회사명</label>
+                        <input type="text" name="pcomp" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>상품명</label>
+                        <input type="text" name="pname" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>색상</label>
+                        <input type="color" name="pcolor" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>수량</label>
+                        <input type="text" name="pamt" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>가격</label>
+                        <input type="text" name="pprice" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label>제조일시</label>
+                        <input type="date" name="pmdate" class="form-control" required>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="확인" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

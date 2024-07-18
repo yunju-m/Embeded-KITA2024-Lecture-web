@@ -3,8 +3,8 @@
 <%@page import="jspbasic.product.Product"%>
     
 <%
-	ProductProc productProc = new ProductProc();
-	Product product = productProc.getProduct(Integer.parseInt(request.getParameter("pno")));
+    ProductProc productProc = new ProductProc();
+    Product product = productProc.getProduct(Integer.parseInt(request.getParameter("pno")));
 %>
 
 <!DOCTYPE html>
@@ -12,22 +12,47 @@
 <head>
 <meta charset="UTF-8">
 <title>상품수정화면</title>
-<link rel="stylesheet" href="../css/product.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/productForm.css">
 <script src="../js/product.js"></script>
 </head>
 <body>
-	<div id="wrapper">
-		<h2>수정내역</h2>
-		<form method="post" action="productUpdateProc.jsp">
-			<input type="hidden" name="pno" value=<%=product.getPno()%> /> <br />
-			회사명 : <input type="text" name="pcomp" value=<%=product.getPcomp()%> /><br />
-			상품명 : <input type="text" name="pname" value=<%=product.getPname()%>/><br />
-			색상 : <input type="color" name="pcolor" value=<%=product.getPcolor()%> /><br />
-			수량 : <input type="text" name="pamt" value=<%=product.getPamt()%> /><br />
-			가격 : <input type="text" name="pprice" value=<%=product.getPprice()%> /><br />
-			제조일시 : <input type="date" name="pmdate" value=<%=product.getPmdate()%>/><br />
-			<input type="submit" value="확인" />
-		</form>
-	</div>
+    <div class="regist-container">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">상품 수정</h2>
+                <form method="post" action="productUpdateProc.jsp">
+                    <input type="hidden" name="pno" value="<%=product.getPno()%>">
+                    <div class="form-group">
+                        <label>회사명</label>
+                        <input type="text" name="pcomp" class="form-control" value="<%=product.getPcomp()%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>상품명</label>
+                        <input type="text" name="pname" class="form-control" value="<%=product.getPname()%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>색상</label>
+                        <input type="color" name="pcolor" class="form-control" value="<%=product.getPcolor()%>">
+                    </div>
+                    <div class="form-group">
+                        <label>수량</label>
+                        <input type="text" name="pamt" class="form-control" value="<%=product.getPamt()%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>가격</label>
+                        <input type="text" name="pprice" class="form-control" value="<%=product.getPprice()%>" required>
+                    </div>
+                    <div class="form-group">
+                        <label>제조일시</label>
+                        <input type="date" name="pmdate" class="form-control" value="<%=product.getPmdate()%>" required>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="submit" value="확인" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
