@@ -1,7 +1,7 @@
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="jspbasic.product.Product"%>
 <%@page import="java.util.List"%>
 <%@page import="jspbasic.product.ProductProc"%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
 	List<Product> productList = new ProductProc().listProduct();
@@ -38,7 +38,7 @@
 				for(Product product : productList) {
 			%>
 			<tr>
-				<td><%=product.getPno()%></td>
+				<td><%out.print(product.getPno());%></td>
 				<td><%=product.getPcomp()%></td>
 				<td><%=product.getPname()%></td>
 				<td><%=product.getPcolor()%></td>
