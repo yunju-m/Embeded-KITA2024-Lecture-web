@@ -73,7 +73,9 @@ public class BoardDao implements BoardInterface {
 		pstmt.setString(3, board.getBwriter());
 		pstmt.setInt(4, board.getBcount());
 		pstmt.setTimestamp(5, board.getBregdate());
-		return pstmt.executeUpdate();
+		int result = pstmt.executeUpdate();
+		pstmt.close();
+		return result;
 	}
 
 	@Override
@@ -84,7 +86,9 @@ public class BoardDao implements BoardInterface {
 		pstmt.setString(2, board.getBcontent());
 		pstmt.setString(3, board.getBwriter());
 		pstmt.setInt(4,  board.getBid());
-		return pstmt.executeUpdate();
+		int result = pstmt.executeUpdate();
+		pstmt.close();
+		return result;
 	}
 
 	@Override
@@ -92,7 +96,9 @@ public class BoardDao implements BoardInterface {
 		String sql = " DELETE FROM BOARD WHERE BID = ? ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, bid);
-		return pstmt.executeUpdate();
+		int result = pstmt.executeUpdate();
+		pstmt.close();
+		return result;
 	}
 
 	@Override
@@ -100,7 +106,9 @@ public class BoardDao implements BoardInterface {
 		String sql = " UPDATE BOARD SET BCOUNT = BCOUNT + 1 WHERE BID = ? ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setInt(1, bid);
-		return pstmt.executeUpdate();
+		int result = pstmt.executeUpdate();
+		pstmt.close();
+		return result;
 	}
 
 }
