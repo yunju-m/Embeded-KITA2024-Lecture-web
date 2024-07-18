@@ -1,20 +1,18 @@
 package jspbasic.product;
 
-import java.sql.Date;
-
 public class Product {
 	private int pno; // 품번
 	private String pcomp; // 제조사
 	private String pname; // 상품명
 	private String pcolor; // 색상
-	private int pamt; // 수량
-	private int pprice; // 가격
-	private Date pmdate; // 제조일시
+	private String pamt; // 수량
+	private String pprice; // 가격
+	private String pmdate; // 제조일시
 	
 	public Product() {
 	}
 
-	public Product(int pno, String pcomp, String pname, String pcolor, int pamt, int pprice, Date pmdate) {
+	public Product(int pno, String pcomp, String pname, String pcolor, String pamt, String pprice, String pmdate) {
 		super();
 		this.pno = pno;
 		this.pcomp = pcomp;
@@ -57,27 +55,27 @@ public class Product {
 		this.pcolor = pcolor;
 	}
 
-	public int getPamt() {
+	public String getPamt() {
 		return pamt;
 	}
 
-	public void setPamt(int pamt) {
+	public void setPamt(String pamt) {
 		this.pamt = pamt;
 	}
 
-	public int getPprice() {
+	public String getPprice() {
 		return pprice;
 	}
 
-	public void setPprice(int pprice) {
+	public void setPprice(String pprice) {
 		this.pprice = pprice;
 	}
 
-	public Date getPmdate() {
+	public String getPmdate() {
 		return pmdate;
 	}
 
-	public void setPmdate(Date pmdate) {
+	public void setPmdate(String pmdate) {
 		this.pmdate = pmdate;
 	}
 
@@ -86,6 +84,6 @@ public class Product {
 		return "Product [pno=" + pno + ", pcomp=" + pcomp + ", pname=" + pname + ", pcolor=" + pcolor + ", pamt=" + pamt
 				+ ", pprice=" + pprice + ", pmdate=" + pmdate + "]";
 	}
-	
+
 }
 

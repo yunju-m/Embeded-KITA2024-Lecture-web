@@ -1,6 +1,5 @@
 package jspbasic.product;
 
-import java.sql.Date;
 import java.util.List;
 
 public class ProductTest {
@@ -9,16 +8,14 @@ public class ProductTest {
 	
 		ProductProc productProc = new ProductProc();
 		Product product 
-			= new Product(0, "제조사", "상품명", "색상", 10, 1000,
-					new Date(System.currentTimeMillis()));
+			= new Product(0, "제조사", "상품명", "색상", "10", "1000", "2024-07-18");
 		int result = productProc.insertProduct(product);
 		if (result > 0) {
 			System.out.println("등록 성공!");
 		}
 		
 		Product product2
-		= new Product(1, "신제조사", "신상품", "새로운색상", 30, 3000,
-				new Date(System.currentTimeMillis()));
+		= new Product(0, "신제조사", "신상품", "새로운색상", "30", "3000", "2024-07-18");
 		productProc.updateProduct(product2);
 		if (result > 0) {
 			System.out.println("업데이트 성공!");
@@ -33,6 +30,8 @@ public class ProductTest {
 		for (Product p : productList) {
 			System.out.println(p);
 		}
+		
+		productProc.getProduct(1);
 	}
 	
 }
