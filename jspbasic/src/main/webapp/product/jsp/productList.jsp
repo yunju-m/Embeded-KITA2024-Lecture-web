@@ -12,50 +12,51 @@
 <head>
 <meta charset="UTF-8">
 <title>productList</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/productList.css" />
 </head>
 <body>
-	<h2>상품리스트</h2>
-	<button onclick="location.href='productRegistForm.jsp';">등록</button>
-	<table>
-		<thead>
-			<tr>
-				<th>품번</th>
-				<th>제조사</th>
-				<th>상품명</th>
-				<th>색상</th>
-				<th>수량</th>
-				<th>가격</th>
-				<th>제조일시</th>
-				<th>수정</th>
-				<th>삭제</th>
-			</tr>
-			<tr>
-				<td></td>
-			</tr>
-		</thead>
-		<tbody>
-			<%
-				for(Product product : productList) {
-			%>
-			<tr>
-				<td><%out.print(product.getPno());%></td>
-				<td><%=product.getPcomp()%></td>
-				<td><%=product.getPname()%></td>
-				<td><%=product.getPcolor()%></td>
-				<td><%=product.getPamt()%></td>
-				<td><%=product.getPprice()%></td>
-				<td><%=product.getPmdate()%></td>
-				<td>
-					<a href="productUpdateForm.jsp?pno=<%=product.getPno()%>">[수정]</a>
-				</td>
-				<td>
-					<a href="productDeleteProc.jsp?pno=<%=product.getPno()%>">[삭제]</a>
-				</td>
-			</tr>
-			<%
-				}
-			%>
-		</tbody>
-	</table>
+	<div class="container">
+        <h2 class="my-4 text-center">상품리스트</h2>
+        <div class="text-right mb-4">
+            <a href="productRegistForm.jsp" class="btn btn-primary">상품 등록</a>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">품번</th>
+                        <th scope="col">제조사</th>
+                        <th scope="col">상품명</th>
+                        <th scope="col">색상</th>
+                        <th scope="col">수량</th>
+                        <th scope="col">가격</th>
+                        <th scope="col">제조일시</th>
+                        <th scope="col">수정</th>
+                        <th scope="col">삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(Product product : productList) { %>
+                    <tr>
+                        <td><%= product.getPno() %></td>
+                        <td><%= product.getPcomp() %></td>
+                        <td><%= product.getPname() %></td>
+                        <td><%= product.getPcolor() %></td>
+                        <td><%= product.getPamt() %></td>
+                        <td><%= product.getPprice() %></td>
+                        <td><%= product.getPmdate() %></td>
+                        <td>
+                            <a href="productUpdateForm.jsp?pno=<%= product.getPno() %>" class="btn btn-sm btn-info">수정</a>
+                        </td>
+                        <td>
+                            <a href="productDeleteProc.jsp?pno=<%= product.getPno() %>" class="btn btn-sm btn-danger">삭제</a>
+                        </td>
+                    </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
