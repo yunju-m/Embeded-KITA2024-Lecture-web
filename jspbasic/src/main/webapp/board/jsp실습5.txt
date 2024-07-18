@@ -7,8 +7,9 @@
 * 클래스 : Board.java, BoardDao.java, ConnectionUtil.java
 * 폴더 : board
 * 파일 : css/board.css
-          js/board.js 
-         jsp/boardList.jsp
+           js/board.js
+           jsp/boardListProc.jsp 
+           jsp/boardList.jsp
            jsp/boardRegistForm.jsp
            jsp/boardUpdateForm.jsp
            jsp/boardRegistProc.jsp
