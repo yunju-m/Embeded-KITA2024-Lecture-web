@@ -16,6 +16,14 @@
                 <h2 class="card-title text-center mb-4">게시물 등록</h2>
                 <form method="post" action="boardRegistProc.jsp">
                 	<input type="hidden" name="bwriter" value="${sessionScope.mid}" />
+                	<div class="form-group">
+                        <label>분류</label>
+                        <select name="bsort">
+                        	<option value="자유게시판">자유게시판</option>
+                        	<option value="공지사항">공지사항</option>
+                        	<option value="사진">사진</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>제목</label>
                         <input type="text" name="btitle" class="form-control" required />

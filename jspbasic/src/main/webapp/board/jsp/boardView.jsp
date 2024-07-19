@@ -26,12 +26,12 @@
 	<div class="regist-container">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">게시물 보기</h2>
+                <h2 class="card-title text-center mb-4">${board.bid}. ${board.btitle}</h2>
                	<div class="form-group">
-                  <h4 class="card-title">${board.bid}. ${board.btitle}</h4>
                   <p class="card-writer">${board.bwriter}</p>
                 </div>
                 <div class="form-group">
+                	<p class="card-text">${board.bsort}</p>
                     <p class="card-text">${board.bcontent}</p>         
                 </div>
                 <div class="form-group text-center">
