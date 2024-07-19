@@ -14,7 +14,11 @@
 	<div class="container">
 		<h2>게시판 목록</h2>
 		<div class="text-right mb-4">
-			<a href="boardRegistForm.jsp" class="btn btn-primary">상품 등록</a>
+		<p>
+			${sessionScope.mid}님 환영합니다!
+			<input type="button" value="로그아웃" onclick="location.href='logoutProc.jsp';" />
+		</p>
+		<a href="boardRegistForm.jsp" class="btn btn-primary">상품 등록</a>
 		</div>
 		<div class="table-responsive">
             <table class="table table-bordered table-hover">
