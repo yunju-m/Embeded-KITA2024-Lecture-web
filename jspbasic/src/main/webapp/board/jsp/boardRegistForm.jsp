@@ -13,8 +13,9 @@
 	<div class="regist-container">
         <div class="card">
             <div class="card-body">
-                <h2 class="card-title text-center mb-4">게시판 등록</h2>
+                <h2 class="card-title text-center mb-4">게시물 등록</h2>
                 <form method="post" action="boardRegistProc.jsp">
+                	<input type="hidden" name="bwriter" value="${sessionScope.mid}" />
                     <div class="form-group">
                         <label>제목</label>
                         <input type="text" name="btitle" class="form-control" required />
@@ -22,10 +23,6 @@
                     <div class="form-group">
                         <label>내용</label>
                         <textarea name="bcontent" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label>작성자</label>
-                        <input type="text" name="bwriter" class="form-control" required />
                     </div>
                     <div class="form-group text-center">
                         <a href="boardListProc.jsp" type="button" class="btn btn-danger">취소</a>

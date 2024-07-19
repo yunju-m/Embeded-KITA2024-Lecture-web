@@ -13,14 +13,28 @@ public class BoardDao implements BoardInterface {
 	Connection conn;
 	PreparedStatement pstmt;
 	ResultSet rs;
-	
+
 	public BoardDao() {
 		conn = ConnectionUtil.getConnection();
 	}
-	
+
 	@Override
-	public List<Board> listBoard() throws SQLException {
-		String sql = " SELECT * FROM BOARD ORDER BY BID DESC ";
+	public List<Board> listBoard(String searchKeyword, String searchValue)
+			throws SQLException {
+		
+		if (searchKeyword == null) searchKeyword="";
+		if (searchValue == null) searchValue="";
+		
+		String sql = " SELECT * FROM BOARD ";
+		if (searchKeyword.equals("btitle")) {
+			sql += " WHERE BTITLE LIKE '%" + searchValue + "%' ";
+		} else if (searchKeyword.equals("bcontent")) {
+			sql += " WHERE BCONTENT LIKE '%" + searchValue + "%' ";
+		} else if (searchKeyword.equals("")) {
+			sql += " WHERE BTITLE LIKE '%" + searchValue + "%' ";
+			sql += " OR BCONTENT LIKE '%\" + searchValue + \"%' ";
+		}
+		sql += " ORDER BY BID DESC ";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 		List<Board> boardList = new ArrayList<Board>();
@@ -33,7 +47,7 @@ public class BoardDao implements BoardInterface {
 						rs.getString("BWRITER"),
 						rs.getInt("BCOUNT"),
 						rs.getTimestamp("BREGDATE")
-				);
+						);
 				boardList.add(board);
 			}
 			pstmt.close();
@@ -58,7 +72,7 @@ public class BoardDao implements BoardInterface {
 					rs.getString("BWRITER"),
 					rs.getInt("BCOUNT"),
 					rs.getTimestamp("BREGDATE")
-			);
+					);
 		}
 		pstmt.close();
 		return board;
@@ -78,12 +92,11 @@ public class BoardDao implements BoardInterface {
 
 	@Override
 	public int updateBoard(Board board) throws SQLException {
-		String sql = " UPDATE BOARD SET BTITLE = ?, BCONTENT = ?, BWRITER = ? WHERE BID = ? ";
+		String sql = " UPDATE BOARD SET BTITLE = ?, BCONTENT = ? WHERE BID = ? ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, board.getBtitle());
 		pstmt.setString(2, board.getBcontent());
-		pstmt.setString(3, board.getBwriter());
-		pstmt.setInt(4,  board.getBid());
+		pstmt.setInt(3,  board.getBid());
 		int result = pstmt.executeUpdate();
 		pstmt.close();
 		return result;

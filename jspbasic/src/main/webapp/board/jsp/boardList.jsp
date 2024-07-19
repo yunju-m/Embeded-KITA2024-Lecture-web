@@ -18,6 +18,15 @@
 			${sessionScope.mid}님 환영합니다!
 			<input type="button" value="로그아웃" onclick="location.href='logoutProc.jsp';" />
 		</p>
+		<form method="get" action="boardListProc.jsp" class="searchForm">
+			<select name="searchKeyword">
+				<option value="">--전체--</option>
+				<option value="btitle">제목</option>
+				<option value="bcontent">내용</option>
+			</select>
+			<input type="text" name="searchValue" />
+			<input type="submit" value="검색" />
+		</form>
 		<a href="boardRegistForm.jsp" class="btn btn-primary">상품 등록</a>
 		</div>
 		<div class="table-responsive">

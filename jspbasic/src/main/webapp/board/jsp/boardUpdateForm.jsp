@@ -33,10 +33,6 @@
                         <label>내용</label>
                         <textarea name="bcontent" class="form-control">${board.bcontent}</textarea>
                     </div>
-                    <div class="form-group">
-                        <label>작성자</label>
-                        <input type="text" name="bwriter" class="form-control" value="${board.bwriter}" required />
-                    </div>
                     <div class="form-group text-center">
                         <a href="boardListProc.jsp" type="button" class="btn btn-danger">취소</a>
                         <input type="submit" value="수정" class="btn btn-info">

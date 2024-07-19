@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface BoardInterface {
 	
-	public abstract List<Board> listBoard() throws SQLException; // 게시물 목록
+	public abstract List<Board> listBoard(String searchKeyword, String searchValue) throws SQLException; // 게시물 목록
 	
 	public abstract Board getBoard(int bid) throws SQLException; // 게시물 한개 조회
 	
