@@ -19,21 +19,30 @@ public class BoardDao implements BoardInterface {
 	}
 
 	@Override
-	public List<Board> listBoard(String searchKeyword, String searchValue)
+	public List<Board> listBoard(String bsort, String searchKeyword, String searchValue)
 			throws SQLException {
-		
+
+		String sql = " SELECT * FROM BOARD ";
+
+		if (bsort == null) bsort="";
 		if (searchKeyword == null) searchKeyword="";
 		if (searchValue == null) searchValue="";
-		
-		String sql = " SELECT * FROM BOARD ";
+
+		// 게시물 검색 기능
 		if (searchKeyword.equals("btitle")) {
 			sql += " WHERE BTITLE LIKE '%" + searchValue + "%' ";
 		} else if (searchKeyword.equals("bcontent")) {
 			sql += " WHERE BCONTENT LIKE '%" + searchValue + "%' ";
 		} else if (searchKeyword.equals("")) {
-			sql += " WHERE BTITLE LIKE '%" + searchValue + "%' ";
-			sql += " OR BCONTENT LIKE '%\" + searchValue + \"%' ";
+			sql += " WHERE ( BTITLE LIKE '%" + searchValue + "%' ";
+			sql += " OR BCONTENT LIKE '%" + searchValue + "%' ) ";
 		}
+
+		// 게시물 분류 기능
+		if (!bsort.isEmpty()) {
+			sql += " AND BSORT = '" + bsort + "'";
+		}
+
 		sql += " ORDER BY BID DESC ";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();

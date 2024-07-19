@@ -11,11 +11,15 @@ body {
 
 .search-container {
 	display: flex;
-	justify-content: center;
+	justify-content: space-between;
 }
 
 .search-container > a{
 	margin-left:10px;
+}
+
+.searchVal {
+	width: 400px;
 }
 
 .table th, .table td {

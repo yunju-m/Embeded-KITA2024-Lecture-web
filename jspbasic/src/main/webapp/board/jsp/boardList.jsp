@@ -20,12 +20,18 @@
 			</p>
 			<div class="search-container">
 				<form method="get" action="boardListProc.jsp" class="searchForm">
+					<select name="bsort">
+						<option value="">--전체--</option>
+						<option value="자유게시판" <c:if test="${bsort=='자유게시판'}">selected</c:if>>자유게시판</option>
+						<option value="공지사항" <c:if test="${bsort=='공지사항'}">selected</c:if>>공지사항</option>
+						<option value="사진" <c:if test="${bsort=='사진'}">selected</c:if>>사진</option>
+					</select>
 					<select name="searchKeyword">
 						<option value="">--전체--</option>
-						<option value="btitle">제목</option>
-						<option value="bcontent">내용</option>
+						<option value="btitle" <c:if test="${searchKeyword=='btitle'}">selected</c:if>>제목</option>
+						<option value="bcontent" <c:if test="${searchKeyword=='bcontent'}">selected</c:if>>내용</option>
 					</select>
-					<input type="text" name="searchValue" />
+					<input type="text" name="searchValue" class="searchVal" />
 					<input type="submit" value="검색" class="btn btn-dark" />
 				</form>
 				<a href="boardRegistForm.jsp" class="btn btn-outline-dark">게시물 등록</a>		
