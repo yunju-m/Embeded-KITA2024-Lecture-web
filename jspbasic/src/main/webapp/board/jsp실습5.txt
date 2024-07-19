@@ -1,6 +1,6 @@
 # jsp실습5 : JSP 게시판 
 
-* 테이블명 : board
+* 테이블명 : board, member
 * 시퀀스명 : seq_board
 * 패키지 : jspbasic.board
 * 인터페이스 : BoardInterface.java
@@ -15,8 +15,15 @@
            jsp/boardRegistProc.jsp
            jsp/boardUpdateProc.jsp
            jsp/boardDeleteProc.jsp
-* 기능 : 게시물목록, 게시물등록, 게시물수정, 게시물삭제, 조회수증가
+           jsp/boardView.jsp
+           jsp/login.jsp
+           jsp/loginProc.jsp
+           jsp/logoutProc.jsp
+           jsp/index.jsp
+           
+* 기능 : 게시물목록, 게시물등록, 게시물수정, 게시물삭제, 조회수증가, 로그인 및 로그아웃
 * 게시물 : 번호(bid), 제목(btitle), 내용(bcontent), 작성자(bwriter), 조회수(bcount), 작성일시(bregdate)
+* 사용자 : 아이디(mid), 비밀번호(mpass)
 
 * 실습 순서
 1. 테이블/시퀀스 생성
