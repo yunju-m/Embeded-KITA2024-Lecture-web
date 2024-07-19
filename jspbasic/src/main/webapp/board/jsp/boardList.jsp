@@ -22,7 +22,6 @@
                     <tr>
                         <th scope="col">번호</th>
                         <th scope="col">제목</th>
-                        <th scope="col">내용</th>
                         <th scope="col">작성자</th>
                         <th scope="col">조회수</th>
                         <th scope="col">작성일시</th>
@@ -34,8 +33,7 @@
                    <c:forEach var="board" items="${boardList}">
                     <tr>
                         <td>${board.bid}</td>
-                        <td>${board.btitle}</td>
-                        <td>${board.bcontent}</td>
+                        <td><a href="boardView.jsp?bid=${board.bid}">${board.btitle}</a></td>
                         <td>${board.bwriter}</td>
                         <td>${board.bcount}</td>
                         <td><fmt:formatDate value="${board.bregdate}" pattern="yy/MM/dd HH:mm" /></td>
