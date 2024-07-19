@@ -20,7 +20,7 @@ public class BoardTest {
 				System.out.println("등록 실패!");
 			}
 			// 게시물 목록 출력 테스트
-			System.out.println(boardDao.listBoard());
+			System.out.println(boardDao.listBoard("제목", "내용"));
 			
 			// 게시물 수정 테스트
 			Board board2 = new Board(1, "새로운 제목", "새로운 내용", "신인 작성자", 1,
