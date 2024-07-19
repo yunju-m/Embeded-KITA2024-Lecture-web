@@ -1,5 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@
                         <td>${board.bcontent}</td>
                         <td>${board.bwriter}</td>
                         <td>${board.bcount}</td>
-                        <td>${board.bregdate}</td>
+                        <td><fmt:formatDate value="${board.bregdate}" pattern="yy/MM/dd HH:mm" /></td>
                         <td>
                             <a href="boardUpdateForm.jsp?bid=${board.bid}" class="btn btn-sm btn-info">수정</a>
                         </td>
