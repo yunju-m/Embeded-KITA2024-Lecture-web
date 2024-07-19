@@ -46,7 +46,8 @@ public class BoardDao implements BoardInterface {
 						rs.getString("BCONTENT"),
 						rs.getString("BWRITER"),
 						rs.getInt("BCOUNT"),
-						rs.getTimestamp("BREGDATE")
+						rs.getTimestamp("BREGDATE"),
+						rs.getString("BSORT")
 						);
 				boardList.add(board);
 			}
@@ -71,7 +72,8 @@ public class BoardDao implements BoardInterface {
 					rs.getString("BCONTENT"),
 					rs.getString("BWRITER"),
 					rs.getInt("BCOUNT"),
-					rs.getTimestamp("BREGDATE")
+					rs.getTimestamp("BREGDATE"),
+					rs.getString("BSORT")
 					);
 		}
 		pstmt.close();
@@ -80,11 +82,12 @@ public class BoardDao implements BoardInterface {
 
 	@Override
 	public int registBoard(Board board) throws SQLException {
-		String sql = " INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL, ?, ?, ?, 0, SYSDATE) ";
+		String sql = " INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL, ?, ?, ?, 0, SYSDATE, ?) ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, board.getBtitle());
 		pstmt.setString(2, board.getBcontent());
 		pstmt.setString(3, board.getBwriter());
+		pstmt.setString(4, board.getBsort());
 		int result = pstmt.executeUpdate();
 		pstmt.close();
 		return result;
@@ -92,11 +95,12 @@ public class BoardDao implements BoardInterface {
 
 	@Override
 	public int updateBoard(Board board) throws SQLException {
-		String sql = " UPDATE BOARD SET BTITLE = ?, BCONTENT = ? WHERE BID = ? ";
+		String sql = " UPDATE BOARD SET BSORT = ?, BTITLE = ?, BCONTENT = ? WHERE BID = ? ";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, board.getBtitle());
-		pstmt.setString(2, board.getBcontent());
-		pstmt.setInt(3,  board.getBid());
+		pstmt.setString(1, board.getBsort());
+		pstmt.setString(2, board.getBtitle());
+		pstmt.setString(3, board.getBcontent());
+		pstmt.setInt(4,  board.getBid());
 		int result = pstmt.executeUpdate();
 		pstmt.close();
 		return result;

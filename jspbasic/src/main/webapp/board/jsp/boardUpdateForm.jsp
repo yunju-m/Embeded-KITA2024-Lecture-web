@@ -2,6 +2,7 @@
 <%@page import="jspbasic.board.Board"%>
 <%@page import="jspbasic.board.BoardDao"%>
 <%@page import="jspbasic.board.BoardInterface"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <%
 	BoardInterface bi = new BoardDao();
@@ -25,6 +26,14 @@
                 <h2 class="card-title text-center mb-4">게시판 수정</h2>
                 <form method="post" action="boardUpdateProc.jsp">
                 	<input type="hidden" name="bid" value="${board.bid}" />
+                	<div class="form-group">
+                        <label>분류</label>
+                        <select name="bsort">
+                        	<option value="자유게시판" <c:if test="${board.bsort=='자유게시판'}">selected</c:if>>자유게시판</option>
+                        	<option value="공지사항" <c:if test="${board.bsort=='공지사항'}">selected</c:if>>공지사항</option>
+                        	<option value="사진" <c:if test="${board.bsort=='사진'}">selected</c:if>>사진</option>
+                        </select>
+                    </div>
                     <div class="form-group">
                         <label>제목</label>
                         <input type="text" name="btitle" class="form-control" value="${board.btitle}" required />

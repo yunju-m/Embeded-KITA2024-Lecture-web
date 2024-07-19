@@ -16,7 +16,7 @@
 		<div class="text-right mb-4">
 		<p>
 			${sessionScope.mid}님 환영합니다!
-			<input type="button" value="로그아웃" onclick="location.href='logoutProc.jsp';" />
+			<input type="button" value="로그아웃" class="btn btn-dark" onclick="location.href='logoutProc.jsp';" />
 		</p>
 		<form method="get" action="boardListProc.jsp" class="searchForm">
 			<select name="searchKeyword">
@@ -25,7 +25,7 @@
 				<option value="bcontent">내용</option>
 			</select>
 			<input type="text" name="searchValue" />
-			<input type="submit" value="검색" />
+			<input type="submit" value="검색" class="btn btn-dark" />
 		</form>
 		<a href="boardRegistForm.jsp" class="btn btn-primary">게시물 등록</a>
 		</div>
@@ -34,6 +34,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">번호</th>
+                        <th scope="col">분류</th>
                         <th scope="col">제목</th>
                         <th scope="col">작성자</th>
                         <th scope="col">조회수</th>
@@ -46,6 +47,7 @@
                    <c:forEach var="board" items="${boardList}">
                     <tr>
                         <td>${board.bid}</td>
+                        <td>${board.bsort}</td>
                         <td><a href="boardView.jsp?bid=${board.bid}">${board.btitle}</a></td>
                         <td>${board.bwriter}</td>
                         <td>${board.bcount}</td>
