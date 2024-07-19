@@ -27,7 +27,7 @@
 			<input type="text" name="searchValue" />
 			<input type="submit" value="검색" />
 		</form>
-		<a href="boardRegistForm.jsp" class="btn btn-primary">상품 등록</a>
+		<a href="boardRegistForm.jsp" class="btn btn-primary">게시물 등록</a>
 		</div>
 		<div class="table-responsive">
             <table class="table table-bordered table-hover">
