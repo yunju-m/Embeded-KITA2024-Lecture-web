@@ -9,25 +9,27 @@
 <title>게시판 목록</title>
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/boardList.css" />
+<link rel="stylesheet" href="../css/boardList.css">
 <body>
 	<div class="container">
 		<h2>게시판 목록</h2>
 		<div class="text-right mb-4">
-		<p>
-			${sessionScope.mid}님 환영합니다!
-			<input type="button" value="로그아웃" class="btn btn-dark" onclick="location.href='logoutProc.jsp';" />
-		</p>
-		<form method="get" action="boardListProc.jsp" class="searchForm">
-			<select name="searchKeyword">
-				<option value="">--전체--</option>
-				<option value="btitle">제목</option>
-				<option value="bcontent">내용</option>
-			</select>
-			<input type="text" name="searchValue" />
-			<input type="submit" value="검색" class="btn btn-dark" />
-		</form>
-		<a href="boardRegistForm.jsp" class="btn btn-primary">게시물 등록</a>
+			<p>
+				${sessionScope.mid}님 환영합니다!
+				<input type="button" value="로그아웃" class="btn btn-dark" onclick="location.href='logoutProc.jsp';" />
+			</p>
+			<div class="search-container">
+				<form method="get" action="boardListProc.jsp" class="searchForm">
+					<select name="searchKeyword">
+						<option value="">--전체--</option>
+						<option value="btitle">제목</option>
+						<option value="bcontent">내용</option>
+					</select>
+					<input type="text" name="searchValue" />
+					<input type="submit" value="검색" class="btn btn-dark" />
+				</form>
+				<a href="boardRegistForm.jsp" class="btn btn-outline-dark">게시물 등록</a>		
+			</div>
 		</div>
 		<div class="table-responsive">
             <table class="table table-bordered table-hover">

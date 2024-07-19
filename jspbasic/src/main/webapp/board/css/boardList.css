@@ -9,6 +9,15 @@ body {
     margin-top: 50px;
 }
 
+.search-container {
+	display: flex;
+	justify-content: center;
+}
+
+.search-container > a{
+	margin-left:10px;
+}
+
 .table th, .table td {
     vertical-align: middle;
 }
