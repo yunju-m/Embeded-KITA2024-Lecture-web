@@ -65,4 +65,13 @@
   	<url-pattern>/fileupload</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+  	<servlet-name>FiledownloadServlet</servlet-name>
+  	<servlet-class>jspbasic.servlet.FiledownloadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FiledownloadServlet</servlet-name>
+  	<url-pattern>/filedownload</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
