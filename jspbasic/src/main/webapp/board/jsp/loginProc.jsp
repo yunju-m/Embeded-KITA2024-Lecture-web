@@ -10,7 +10,9 @@
 	boolean loginResult = mi.getMember(member);
 	if (loginResult) {
 		session.setAttribute("mid", member.getMid());
-		out.print("<script>alert('환영합니다!');</script>");
+		System.out.println(session.getAttribute("mid") + "님 로그인");
+		Object userCount = application.getAttribute("userCount");
+		application.setAttribute("userCount", userCount==null ? 1 : (Integer)userCount + 1);
 		response.sendRedirect("boardListProc.jsp");
 	} else {
 		out.print("<script>alert('회원정보가 일치하지 않습니다.'); location.href='login.jsp';</script>");

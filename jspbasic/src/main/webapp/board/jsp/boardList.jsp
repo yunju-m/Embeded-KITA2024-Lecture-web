@@ -13,6 +13,7 @@
 <body>
 	<div class="container">
 		<h2>게시판 목록</h2>
+		<p>현재 접속자 수 : ${applicationScope.userCount}명</p>
 		<div class="text-right mb-4">
 			<p>
 				${sessionScope.mid}님 환영합니다!
