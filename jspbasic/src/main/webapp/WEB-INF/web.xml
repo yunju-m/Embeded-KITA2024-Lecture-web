@@ -10,6 +10,10 @@
   	<listener-class>jspbasic.listener.MyServletContextListener</listener-class>
   </listener>
   
+  <listener>
+  	<listener-class>jspbasic.listener.MyServletContextAttributeListener</listener-class>
+  </listener>
+  
   <filter>
   	<filter-name>LoggingFilter</filter-name>
   	<filter-class>jspbasic.filter.LoggingFilter</filter-class>
