@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>파일업로드</h2>
-	<form method="post" action="uploadProc.jsp" enctype="multipart/form-data">
+	<form method="post" action="/jspbasic/fileupload" enctype="multipart/form-data">
 		제목 : <input type="text" name="title" /><br />
 		파일 : <input type="file" name="f" /><br />
 		<input type="submit" value="전송" />
