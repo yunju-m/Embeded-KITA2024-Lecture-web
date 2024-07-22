@@ -2,10 +2,6 @@
 <%@page import="jspbasic.board.BoardInterface"%>
 <%@page import="jspbasic.board.BoardDao"%>
 
-<%
-	request.setCharacterEncoding("utf-8");
-%>
-
 <jsp:useBean id="board" class="jspbasic.board.Board" />
 <jsp:setProperty name="board" property="*" />
 
