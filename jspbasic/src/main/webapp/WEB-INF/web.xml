@@ -6,6 +6,10 @@
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
+  <listener>
+  	<listener-class>jspbasic.listener.MyServletContextListener</listener-class>
+  </listener>
+  
   <filter>
   	<filter-name>LoggingFilter</filter-name>
   	<filter-class>jspbasic.filter.LoggingFilter</filter-class>
