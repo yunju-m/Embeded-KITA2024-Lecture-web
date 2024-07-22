@@ -48,6 +48,7 @@
                         <th scope="col">작성자</th>
                         <th scope="col">조회수</th>
                         <th scope="col">작성일시</th>
+                        <th scope="col">파일</th>
                         <th scope="col">수정</th>
                         <th scope="col">삭제</th>
                     </tr>
@@ -61,6 +62,7 @@
                         <td>${board.bwriter}</td>
                         <td>${board.bcount}</td>
                         <td><fmt:formatDate value="${board.bregdate}" pattern="yy/MM/dd HH:mm" /></td>
+                        <td>${board.cfn}</td>
                         <td>
                             <a href="boardUpdateForm.jsp?bid=${board.bid}" class="btn btn-sm btn-info">수정</a>
                         </td>

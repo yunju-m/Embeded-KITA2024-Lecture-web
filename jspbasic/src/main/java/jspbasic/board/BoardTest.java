@@ -9,7 +9,7 @@ public class BoardTest {
 
 		BoardDao boardDao = new BoardDao();
 		Board board = new Board(0, "제목1", "내용1", "작성자1", 0,
-				new Timestamp(System.currentTimeMillis()), "자유게시판");
+				new Timestamp(System.currentTimeMillis()), "자유게시판", "file1", "uuid1");
 		int result;
 		try {
 			// 게시물 등록 테스트
@@ -24,7 +24,7 @@ public class BoardTest {
 			
 			// 게시물 수정 테스트
 			Board board2 = new Board(1, "새로운 제목", "새로운 내용", "신인 작성자", 1,
-					new Timestamp(System.currentTimeMillis()), "공지");
+					new Timestamp(System.currentTimeMillis()), "공지", "file2", "uuid2");
 			result = boardDao.updateBoard(board2);
 			if (result > 0) {
 				System.out.println("수정 성공!");

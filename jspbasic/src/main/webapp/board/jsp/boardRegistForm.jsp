@@ -14,7 +14,7 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">게시물 등록</h2>
-                <form method="post" action="boardRegistProc.jsp">
+                <form method="post" action="boardRegistProc.jsp" enctype="multipart/form-data">
                 	<input type="hidden" name="bwriter" value="${sessionScope.mid}" />
                 	<div class="form-group">
                         <label>분류</label>
@@ -31,6 +31,10 @@
                     <div class="form-group">
                         <label>내용</label>
                         <textarea name="bcontent" class="form-control"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>첨부파일</label>
+                        <input type="file" name="cfn" class="form-control" />
                     </div>
                     <div class="form-group text-center">
                         <a href="boardListProc.jsp" type="button" class="btn btn-danger">취소</a>

@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class BoardDao implements BoardInterface {
 
@@ -56,7 +57,9 @@ public class BoardDao implements BoardInterface {
 						rs.getString("BWRITER"),
 						rs.getInt("BCOUNT"),
 						rs.getTimestamp("BREGDATE"),
-						rs.getString("BSORT")
+						rs.getString("BSORT"),
+						rs.getString("CFN"),
+						rs.getString("SFN")
 						);
 				boardList.add(board);
 			}
@@ -82,7 +85,9 @@ public class BoardDao implements BoardInterface {
 					rs.getString("BWRITER"),
 					rs.getInt("BCOUNT"),
 					rs.getTimestamp("BREGDATE"),
-					rs.getString("BSORT")
+					rs.getString("BSORT"),
+					rs.getString("CFN"),
+					rs.getString("SFN")
 					);
 		}
 		pstmt.close();
@@ -91,12 +96,14 @@ public class BoardDao implements BoardInterface {
 
 	@Override
 	public int registBoard(Board board) throws SQLException {
-		String sql = " INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL, ?, ?, ?, 0, SYSDATE, ?) ";
+		String sql = " INSERT INTO BOARD VALUES(SEQ_BOARD.NEXTVAL, ?, ?, ?, 0, SYSDATE, ?, ?, ?) ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, board.getBtitle());
 		pstmt.setString(2, board.getBcontent());
 		pstmt.setString(3, board.getBwriter());
 		pstmt.setString(4, board.getBsort());
+		pstmt.setString(5, board.getCfn());
+		pstmt.setString(6, UUID.randomUUID().toString());
 		int result = pstmt.executeUpdate();
 		pstmt.close();
 		return result;
