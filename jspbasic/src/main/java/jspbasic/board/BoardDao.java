@@ -111,12 +111,14 @@ public class BoardDao implements BoardInterface {
 
 	@Override
 	public int updateBoard(Board board) throws SQLException {
-		String sql = " UPDATE BOARD SET BSORT = ?, BTITLE = ?, BCONTENT = ? WHERE BID = ? ";
+		String sql = " UPDATE BOARD SET BSORT = ?, BTITLE = ?, BCONTENT = ?, CFN = ?, SFN = ? WHERE BID = ? ";
 		pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, board.getBsort());
 		pstmt.setString(2, board.getBtitle());
 		pstmt.setString(3, board.getBcontent());
-		pstmt.setInt(4,  board.getBid());
+		pstmt.setString(4, board.getCfn());
+		pstmt.setString(5, UUID.randomUUID().toString());
+		pstmt.setInt(6,  board.getBid());
 		int result = pstmt.executeUpdate();
 		pstmt.close();
 		return result;

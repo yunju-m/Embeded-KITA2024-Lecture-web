@@ -64,7 +64,7 @@
                         <td><fmt:formatDate value="${board.bregdate}" pattern="yy/MM/dd HH:mm" /></td>
                         <td>
                         	<c:if test="${!empty board.cfn}">
-                        	<a href="/filedownload?filename=${board.cfn}"><img class="fileImg" src="../img/file.png"></a>
+                        	<a href="/jspbasic/filedownload?filename=${board.cfn}"><img class="fileImg" src="../img/file.png"></a>
                         	</c:if>
                        	</td>
                         <td>

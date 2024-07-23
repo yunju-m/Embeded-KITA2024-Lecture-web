@@ -24,8 +24,9 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">게시판 수정</h2>
-                <form method="post" action="boardUpdateProc.jsp">
+                <form method="post" action="boardUpdateProc.jsp" enctype="multipart/form-data">
                 	<input type="hidden" name="bid" value="${board.bid}" />
+                	<input type="hidden" name="cfn" value="${board.cfn}" />
                 	<div class="form-group">
                         <label>분류</label>
                         <select name="bsort">
@@ -42,6 +43,10 @@
                         <label>내용</label>
                         <textarea name="bcontent" class="form-control">${board.bcontent}</textarea>
                     </div>
+                    <div class="form-group">
+                    	<label>첨부파일 : ${board.cfn}</label>
+                    	<input type="file" name="newcfn" class="form-control" />
+                	</div>
                     <div class="form-group text-center">
                         <a href="boardListProc.jsp" type="button" class="btn btn-danger">취소</a>
                         <input type="submit" value="수정" class="btn btn-info">

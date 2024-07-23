@@ -2,6 +2,7 @@
 <%@page import="jspbasic.board.Board"%>
 <%@page import="jspbasic.board.BoardDao"%>
 <%@page import="jspbasic.board.BoardInterface"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <%
@@ -35,6 +36,11 @@
                 <div class="form-group">
                 	<p class="card-text">${board.bsort}</p>
                     <p class="card-text">${fn:replace(board.bcontent, lineChar, "<br />")}</p>
+                </div>
+                <div class="form-group">
+                  <c:if test="${!empty board.cfn}">
+                  	첨부파일 : <a href="/jspbasic/filedownload?filename=${board.cfn}">${board.cfn}</a>
+                  </c:if>
                 </div>
                 <div class="form-group text-center">
                     <input type="button" value="목록" class="btn btn-primary" onclick="location.href='boardListProc.jsp';" />
