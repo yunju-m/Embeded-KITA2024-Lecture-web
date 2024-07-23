@@ -1,7 +1,7 @@
+<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="java.io.File"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
-<%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="jspbasic.board.BoardInterface"%>
 <%@page import="jspbasic.board.BoardDao"%>
 
@@ -21,7 +21,7 @@
 <jsp:setProperty name="board" property="bsort" value='<%=mr.getParameter("bsort")%>' />
 <jsp:setProperty name="board" property="btitle" value='<%=mr.getParameter("btitle")%>' />
 <jsp:setProperty name="board" property="bcontent" value='<%=mr.getParameter("bcontent")%>' />
-<jsp:setProperty name="board" property="cfn" value='<%=mr.getFilesystemName("cfn")%>' />
+<jsp:setProperty name="board" property="cfn" value='<%=mr.getOriginalFileName("cfn")%>' />
 
 <%
 	BoardInterface bi = new BoardDao();
