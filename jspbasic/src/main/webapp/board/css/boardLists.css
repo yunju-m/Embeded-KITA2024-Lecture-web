@@ -26,3 +26,7 @@ body {
 .table th, .table td {
     vertical-align: middle;
 }
+
+.fileImg {
+	width: 18px;
+}

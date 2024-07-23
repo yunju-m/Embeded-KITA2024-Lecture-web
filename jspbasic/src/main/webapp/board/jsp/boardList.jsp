@@ -9,7 +9,7 @@
 <title>게시판 목록</title>
 </head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/boardList.css">
+<link rel="stylesheet" href="../css/boardLists.css">
 <body>
 	<div class="container">
 		<h2>게시판 목록</h2>
@@ -62,7 +62,11 @@
                         <td>${board.bwriter}</td>
                         <td>${board.bcount}</td>
                         <td><fmt:formatDate value="${board.bregdate}" pattern="yy/MM/dd HH:mm" /></td>
-                        <td>${board.cfn}</td>
+                        <td>
+                        	<c:if test="${!empty board.cfn}">
+                        	<a href="/filedownload?filename=${board.cfn}"><img class="fileImg" src="../img/file.png"></a>
+                        	</c:if>
+                       	</td>
                         <td>
                             <a href="boardUpdateForm.jsp?bid=${board.bid}" class="btn btn-sm btn-info">수정</a>
                         </td>
