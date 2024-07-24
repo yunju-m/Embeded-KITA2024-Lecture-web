@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+	<resultMap id="BoardResult" type="Board">
+		<id property="bid" column="bid"/>
+		<result property="btitle" column="btitle"/>
+		<result property="bcontent" column="bcontent"/>
+		<result property="bwriter" column="bwriter"/>
+		<result property="bcount" column="bcount"/>
+		<result property="bregdate" column="bregdate"/>
+		<result property="bsort" column="bsort"/>
+		<result property="cfn" column="cfn"/>
+	</resultMap>
+	
+	<insert id="insertBoard" parameterType="Board">
+		insert into board
+		values(seq_board.nextval, #{btitle}, #{bcontent}, #{bwriter}, 0, sysdate, #{bsort}, #{cfn})
+	</insert>
+	
+	<select id="selectAllBoards" resultMap="BoardResult">
+		select *
+		from board
+		order by bid desc
+	</select>
+	
+	<select id="selectBoard" parameterType="Board" resultMap="BoardResult">
+		select *
+		from board
+		where bid=#{bid}
+	</select>
+	
+	<update id="updateBoard" parameterType="Board">
+		update board
+		set btitle=#{btitle}, bcontent=#{bcontent}, bsort=#{bsort}, cfn=#{cfn}
+		where bid=#{bid}
+	</update>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from board
+		where bid=#{bid}
+	</delete>
+	
+	<update id="updateCount" parameterType="int">
+		update board
+		set bcount=bcount+1
+		where bid=#{bid}
+	</update>
+
+</mapper>
