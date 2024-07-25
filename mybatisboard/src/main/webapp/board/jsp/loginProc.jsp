@@ -1,19 +1,20 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="mybatisboard.member.MemberInterface"%>
-<%@page import="mybatisboard.member.MemberDao"%>
+<%@page import="member.MemberInterface"%>
+<%@page import="member.MemberDao"%>
 
-<jsp:useBean id="member" class="mybatisboard.member.Member" />
+<jsp:useBean id="member" class="member.Member" />
 <jsp:setProperty name="member" property="*" />
 
 <%
 	MemberInterface mi = new MemberDao();
-	boolean loginResult = mi.getMember(member);
-	if (loginResult) {
+	
+	int result = mi.getMember(member);
+	if (result < 1) {
+		out.print("<script>alert('등록하신 회원정보를 확인하세요!'); location.href='login.jsp';</script>");
+	} else {
 		session.setAttribute("mid", member.getMid());
 		Object userCount = application.getAttribute("userCount");
 		application.setAttribute("userCount", userCount==null ? 1 : (Integer)userCount + 1);
 		response.sendRedirect("boardListProc.jsp");
-	} else {
-		out.print("<script>alert('회원정보가 일치하지 않습니다.'); location.href='login.jsp';</script>");
 	}
 %>

@@ -1,4 +1,4 @@
-package mybatisboard.board;
+package board;
 
 import java.io.IOException;
 import java.io.Reader;

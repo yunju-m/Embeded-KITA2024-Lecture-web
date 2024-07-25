@@ -1,4 +1,4 @@
-package mybatisboard.servlet;
+package servlet;
 
 import java.io.FileInputStream;
 import java.io.IOException;

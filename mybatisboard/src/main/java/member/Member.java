@@ -1,4 +1,4 @@
-package mybatisboard.member;
+package member;
 
 public class Member {
 

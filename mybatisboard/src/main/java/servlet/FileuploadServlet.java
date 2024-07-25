@@ -1,4 +1,4 @@
-package mybatisboard.servlet;
+package servlet;
 
 import java.io.File;
 import java.io.IOException;

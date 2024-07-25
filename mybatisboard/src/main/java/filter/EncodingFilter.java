@@ -1,4 +1,4 @@
-package mybatisboard.filter;
+package filter;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package mybatisboard.board;
+package board;
 
 import java.sql.SQLException;
 import java.util.List;

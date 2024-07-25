@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  
   <display-name>mybatisboard</display-name>
+  
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
   
@@ -17,7 +18,7 @@
   
   <servlet>
   	<servlet-name>FileuploadServlet</servlet-name>
-  	<servlet-class>mybatisboard.servlet.FileuploadServlet</servlet-class>
+  	<servlet-class>servlet.FileuploadServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>FileuploadServlet</servlet-name>
@@ -26,7 +27,7 @@
   
   <servlet>
   	<servlet-name>FiledownloadServlet</servlet-name>
-  	<servlet-class>mybatisboard.servlet.FiledownloadServlet</servlet-class>
+  	<servlet-class>servlet.FiledownloadServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>FiledownloadServlet</servlet-name>

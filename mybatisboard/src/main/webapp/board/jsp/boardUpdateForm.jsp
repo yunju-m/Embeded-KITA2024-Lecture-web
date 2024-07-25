@@ -1,7 +1,7 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@page import="mybatisboard.board.Board"%>
-<%@page import="mybatisboard.board.BoardDao"%>
-<%@page import="mybatisboard.board.BoardInterface"%>
+<%@page import="board.Board"%>
+<%@page import="board.BoardDao"%>
+<%@page import="board.BoardInterface"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 

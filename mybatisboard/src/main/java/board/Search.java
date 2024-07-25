@@ -1,4 +1,4 @@
-package mybatisboard.board;
+package board;
 
 public class Search {
 

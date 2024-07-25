@@ -1,4 +1,4 @@
-package mybatisboard.board;
+package board;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
