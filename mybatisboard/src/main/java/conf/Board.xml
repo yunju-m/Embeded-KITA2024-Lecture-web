@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Board">
-	<resultMap id="BoardResult" type="Board">
-		<id property="bid" column="bid"/>
-		<result property="btitle" column="btitle"/>
-		<result property="bcontent" column="bcontent"/>
-		<result property="bwriter" column="bwriter"/>
-		<result property="bcount" column="bcount"/>
-		<result property="bregdate" column="bregdate"/>
-		<result property="bsort" column="bsort"/>
-		<result property="cfn" column="cfn"/>
-	</resultMap>
 	
 	<insert id="insertBoard" parameterType="Board">
 		insert into board
 		values(seq_board.nextval, #{btitle}, #{bcontent}, #{bwriter}, 0, sysdate, #{bsort}, #{cfn})
 	</insert>
 	
-	<select id="selectAllBoards" resultMap="BoardResult">
+	<select id="selectAllBoards" parameterType="Search" resultMap="BoardResult">
 		select *
 		from board
+		where 1=1
+		<if test="bsort!=null">
+			and bsort=#{bsort}
+		</if>
+		<if test="searchKeyword!=null and searchKeyword=='btitle'">
+			and btitle like '%' || #{searchValue} || '%'
+		</if>
+		<if test="searchKeyword!=null and searchKeyword=='bcontent'">
+			and bcontent like '%' || #{searchValue} || '%'
+		</if>
+		<if test="searchKeyword!=null and (searchKeyword!='btitle' and searchKeyword!='bcontent')">
+			and (btitle like '%' || #{searchValue} || '%' or bcontent like '%' || #{searchValue} || '%')
+		</if>
 		order by bid desc
 	</select>
 	

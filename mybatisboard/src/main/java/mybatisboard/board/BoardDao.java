@@ -2,13 +2,8 @@ package mybatisboard.board;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.apache.ibatis.io.Resources;
@@ -31,33 +26,8 @@ public class BoardDao implements BoardInterface {
 	@Override
 	public List<Board> listBoard(String bsort, String searchKeyword, String searchValue)
 			throws SQLException {
-
-		if (bsort == null) bsort="";
-		if (searchKeyword == null) searchKeyword="";
-		if (searchValue == null) searchValue="";
-		List<Board> boardList = session.selectList("selectAllBoards");
-		//
-		//		// 게시물 검색 기능
-		//		if (searchKeyword.equals("btitle")) {
-		//			sql += " WHERE BTITLE LIKE '%" + searchValue + "%' ";
-		//		} else if (searchKeyword.equals("bcontent")) {
-		//			sql += " WHERE BCONTENT LIKE '%" + searchValue + "%' ";
-		//		} else if (searchKeyword.equals("")) {
-		//			sql += " WHERE ( BTITLE LIKE '%" + searchValue + "%' ";
-		//			sql += " OR BCONTENT LIKE '%" + searchValue + "%' ) ";
-		//		}
-		//
-		//		// 게시물 분류 기능
-		//		if (!bsort.isEmpty()) {
-		//			sql += " AND BSORT = '" + bsort + "'";
-		//		}
-		//
-
-		if(boardList.isEmpty()) {
-			return Collections.emptyList();
-		} else {
-			return boardList;			
-		}
+		Search search = new Search(bsort, searchKeyword, searchValue);
+		return session.selectList("selectAllBoards", search);
 	}
 
 	@Override

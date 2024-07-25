@@ -4,6 +4,7 @@
 	<properties resource="conf/db.properties"/>
 	<typeAliases>
 		<typeAlias type="mybatisboard.board.Board" alias="Board" />
+		<typeAlias type="mybatisboard.board.Search" alias="Search" />
 		<typeAlias type="mybatisboard.member.Member" alias="Member" />
 	</typeAliases>
 	<environments default="development">
