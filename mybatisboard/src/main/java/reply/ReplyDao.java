@@ -24,8 +24,8 @@ public class ReplyDao implements ReplyInterface {
 	}
 
 	@Override
-	public List<Reply> listReply() throws Exception {
-		return ssf.openSession().selectList("reply.listReply");
+	public List<Reply> listReply(int bid) throws Exception {
+		return ssf.openSession().selectList("reply.listReply", bid);
 	}
 
 	@Override

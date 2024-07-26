@@ -23,8 +23,8 @@ public class ReplyTest {
 
 			// 댓글 등록 테스트
 			Reply reply1 = new Reply(0, "댓글작성자1", "댓글내용1", null, 2);
-			Reply reply2 = new Reply(0, "댓글작성자1", "댓글내용1", null, 3);
-			Reply reply3 = new Reply(0, "댓글작성자1", "댓글내용1", null, 3);
+			Reply reply2 = new Reply(0, "댓글작성자2", "댓글내용2", null, 3);
+			Reply reply3 = new Reply(0, "댓글작성자3", "댓글내용3", null, 3);
 
 			int result1 = session.insert("registReply", reply1);
 			int result2 =session.insert("registReply", reply2);
@@ -38,7 +38,7 @@ public class ReplyTest {
 			} 
 
 			// 전체 댓글 출력 테스트
-			List<Reply> replyList = session.selectList("listReply", "");
+			List<Reply> replyList = session.selectList("listReply", 3);
 			for (Reply reply : replyList) {
 				System.out.println(reply);
 			}

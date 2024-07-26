@@ -1,10 +1,12 @@
 <%@page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
 <%@page import="board.Board"%>
-<%@page import="board.BoardDao"%>
 <%@page import="board.BoardInterface"%>
+<%@page import="board.BoardDao"%>
 
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <%
 	int bid = Integer.parseInt(request.getParameter("bid"));
@@ -24,7 +26,11 @@
 <title>게시물상세화면</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/boardForm.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="../js/board.js"></script>
+<script defer>
+	getReplyList('${board.bid}');
+</script>
 </head>
 <body>
 	<div class="regist-container">
@@ -48,6 +54,7 @@
                 </div>
             </div>
         </div>
+	    <div id="replyList"></div>
     </div>
 </body>
 </html>
