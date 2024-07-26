@@ -27,14 +27,15 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/boardForm.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
 <script src="../js/board.js"></script>
 <script defer>
-	getReplyList('${board.bid}');
+	getReplyList('${board.bid}', '${sessionScope.mid}');
 </script>
 </head>
 <body>
 	<div class="regist-container">
-        <div class="card">
+        <div class="card board-container">
             <div class="card-body">
                 <h2 class="card-title text-center mb-4">${board.bid}. ${board.btitle}</h2>
                	<div class="form-group">
@@ -54,12 +55,15 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card reply-container">
         	<h2 class="card-title">댓글창</h2>
 		    <div id="replyList"></div>
 	        <div class="input-reply-container">
-		    	댓글 : <input id="rcontent" type="text" placeholder="댓글을 입력해주세요!" />
-		    	<input type="button" value="등록" onclick="registReply('${sessionScope.mid}', '${board.bid}');" />
+			<div class="input-group mb-3">
+		  		<span class="input-group-text">댓글</span>
+		  		<input id="rcontent" type="text" class="form-control" placeholder="댓글을 입력해주세요!" aria-label="Reply">
+	      		<input type="button" value="등록" class="btn btn-primary" onclick="registReply('${sessionScope.mid}', '${board.bid}');" />
+			</div>
 	    	</div>
         </div>
     </div>
