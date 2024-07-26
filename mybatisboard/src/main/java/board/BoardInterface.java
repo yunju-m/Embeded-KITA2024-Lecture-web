@@ -15,6 +15,8 @@ public interface BoardInterface {
 	
 	public abstract int deleteBoard(int bid) throws SQLException; // 게시물 삭제
 	
-	public abstract int addCount(int bid) throws SQLException; // 조회수 증가
+	public abstract int addBcount(int bid) throws SQLException; // 조회수 증가
+	
+	public abstract int changeRcount(int bid) throws SQLException; // 조회수 증가
 	
 }

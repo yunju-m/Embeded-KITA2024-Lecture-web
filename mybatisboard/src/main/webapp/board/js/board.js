@@ -19,7 +19,7 @@ const getReplyList = function(bid, mid) {
 				+ " : " 
 				+ reply.rcontent;
 			if (mid === reply.rwriter) {
-				eachReply += "<a href='javascript:deleteReply(\""+ reply.rid + "\", \"" + bid + "\");'>[X]</a>";				
+				eachReply += "<a href='javascript:deleteReply(\""+ reply.rid + "\", \"" + reply.bid + "\");'>[X]</a>";				
 			}
 			eachReply += "</p>";
 			$("#replyList").append(eachReply);
@@ -40,7 +40,7 @@ const registReply = function(rwriter, bid) {
 }
 
 const deleteReply = function(rid, bid) {
-	$.post("/mybatisboard/board/api/deleteReply.jsp?rid="+rid, function() {
+	$.post("/mybatisboard/board/api/deleteReply.jsp?rid="+rid + "&bid=" + bid, function() {
 	}).done(function() {
 		getReplyList(bid, loginMid);
 	});

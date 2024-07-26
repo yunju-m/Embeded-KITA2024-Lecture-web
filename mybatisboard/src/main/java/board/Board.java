@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.sql.Timestamp;
 
 public class Board implements Serializable {
-	
+
 	public static final long serialVersionUID = 213123913819032L;
-	
+
 	private int bid; // 번호
 	private String btitle; // 제목
 	private String bcontent; // 내용
@@ -15,12 +15,13 @@ public class Board implements Serializable {
 	private Timestamp bregdate; // 작성일시
 	private String bsort; // 분류
 	private String cfn;	// 사용자가 입력한 파일 이름
-	
+	private int rcount; // 댓글수
+
 	public Board() {		
 	}
 
 	public Board(int bid, String btitle, String bcontent, String bwriter, int bcount, Timestamp bregdate, String bsort,
-			String cfn) {
+			String cfn, int rcount) {
 		super();
 		this.bid = bid;
 		this.btitle = btitle;
@@ -30,6 +31,7 @@ public class Board implements Serializable {
 		this.bregdate = bregdate;
 		this.bsort = bsort;
 		this.cfn = cfn;
+		this.rcount = rcount;
 	}
 
 	public int getBid() {
@@ -89,11 +91,19 @@ public class Board implements Serializable {
 	}
 
 	public String getCfn() {
-		return cfn == null ? "" : cfn;
+		return cfn;
 	}
 
 	public void setCfn(String cfn) {
 		this.cfn = cfn;
+	}
+
+	public int getRcount() {
+		return rcount;
+	}
+
+	public void setRcount(int rcount) {
+		this.rcount = rcount;
 	}
 
 	public static long getSerialversionuid() {
@@ -103,8 +113,8 @@ public class Board implements Serializable {
 	@Override
 	public String toString() {
 		return "Board [bid=" + bid + ", btitle=" + btitle + ", bcontent=" + bcontent + ", bwriter=" + bwriter
-				+ ", bcount=" + bcount + ", bregdate=" + bregdate + ", bsort=" + bsort + ", cfn=" + cfn
-				+ "]";
+				+ ", bcount=" + bcount + ", bregdate=" + bregdate + ", bsort=" + bsort + ", cfn=" + cfn + ", rcount="
+				+ rcount + "]";
 	}
 
 }

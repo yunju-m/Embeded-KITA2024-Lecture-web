@@ -25,7 +25,7 @@ public class BoardTest {
 
 			// 게시물 등록 테스트
 			Board board = new Board(0, "제목", "내용", "작성자", 1,
-					new Timestamp(System.currentTimeMillis()), "공지", "file1");
+					new Timestamp(System.currentTimeMillis()), "공지", "file1", 0);
 			int result = session.insert("insertBoard", board);
 			session.commit();
 			if (result > 0) {
@@ -46,7 +46,7 @@ public class BoardTest {
 
 			// 게시물 수정 테스트
 			board = new Board(1, "새로운 제목", "새로운 내용", "새로운 작성자", 1,
-					new Timestamp(System.currentTimeMillis()), "공지", "file2");
+					new Timestamp(System.currentTimeMillis()), "공지", "file2", 0);
 			result = session.update("updateBoard", board);
 			session.commit();
 			if (result > 0) {

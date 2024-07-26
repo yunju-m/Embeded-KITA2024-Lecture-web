@@ -65,11 +65,20 @@ public class BoardDao implements BoardInterface {
 		ss.close();
 		return result;
 	}
-
+	
 	@Override
-	public int addCount(int bid) throws SQLException {
+	public int addBcount(int bid) throws SQLException {
 		SqlSession ss = ssf.openSession();
-		int result = ss.update("board.addCount", bid);
+		int result = ss.update("board.addBcount", bid);
+		ss.commit();
+		ss.close();
+		return result;
+	}
+	
+	@Override
+	public int changeRcount(int bid) throws SQLException {
+		SqlSession ss = ssf.openSession();
+		int result = ss.update("board.changeRcount", bid);
 		ss.commit();
 		ss.close();
 		return result;

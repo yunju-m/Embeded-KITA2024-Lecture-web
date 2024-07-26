@@ -14,7 +14,7 @@
 		values(seq_reply.nextval, #{rwriter}, #{rcontent}, sysdate, #{bid})
 	</insert>
 	
-	<delete id="deleteReply" parameterType="int">
+	<delete id="deleteReply" parameterType="Reply">
 		delete from reply
 		where rid = #{rid}
 	</delete>

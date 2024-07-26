@@ -12,7 +12,7 @@
 	int bid = Integer.parseInt(request.getParameter("bid"));
 	BoardInterface bi = new BoardDao();
 	
-	bi.addCount(bid); // 조회수 증가
+	bi.addBcount(bid); // 조회수 증가
 	
 	Board board = bi.getBoard(bid);
 	pageContext.setAttribute("board", board);
