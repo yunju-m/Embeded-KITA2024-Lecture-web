@@ -6,6 +6,7 @@
 		<typeAlias type="board.Board" alias="Board" />
 		<typeAlias type="board.Search" alias="Search" />
 		<typeAlias type="member.Member" alias="Member" />
+		<typeAlias type="reply.Reply" alias="Reply" />
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -21,5 +22,6 @@
 	<mappers>
 		<mapper resource="conf/Board.xml"/>
 		<mapper resource="conf/Member.xml"/>
+		<mapper resource="conf/Reply.xml"/>
 	</mappers>
 </configuration>
