@@ -54,7 +54,14 @@
                 </div>
             </div>
         </div>
-	    <div id="replyList"></div>
+        <div class="card">
+        	<h2 class="card-title">댓글창</h2>
+		    <div id="replyList"></div>
+	        <div class="input-reply-container">
+		    	댓글 : <input id="rcontent" type="text" placeholder="댓글을 입력해주세요!" />
+		    	<input type="button" value="등록" onclick="registReply('${sessionScope.mid}', '${board.bid}');" />
+	    	</div>
+        </div>
     </div>
 </body>
 </html>
