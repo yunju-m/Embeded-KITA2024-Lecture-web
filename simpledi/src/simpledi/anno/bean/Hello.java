@@ -1,7 +1,9 @@
 package simpledi.anno.bean;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import javax.annotation.Resource;
+
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -10,10 +12,11 @@ import simpledi.anno.service.Printer;
 @Component("hello")
 public class Hello {
 
-	@Value("Spring")
+	@Value("${greeting}")
 	private String name;
-	@Autowired
-	@Qualifier("stringPrinter")
+	// @Autowired
+	// @Qualifier("stringPrinter")
+	@Resource(name="${stringPrinter}")
 	private Printer printer;
 
 	public Hello() {

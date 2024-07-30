@@ -6,4 +6,6 @@
 	
 	<context:component-scan base-package="simpledi.anno" />
 	
+	<context:property-placeholder location="classpath:props/vovalues.properties" />
+	
 </beans>
