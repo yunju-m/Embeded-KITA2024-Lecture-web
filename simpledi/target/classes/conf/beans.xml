@@ -20,4 +20,20 @@
 	
 	<bean id="stringPrinter" class="simpledi.service.StringPrinter" />
 	<bean id="consolePrinter" class="simpledi.service.ConsolePrinter" />
+	
+	<bean id="vo" class="simpledi.bean.VO">
+		<property name="hobbyList">
+			<list>
+				<value>축구</value>
+				<value>농구</value>
+				<value>야구</value>	
+			</list>
+		</property>
+		<property name="personMap">
+			<map>
+				<entry key="name" value="홍길동" />
+				<entry key="address" value="서울" />
+			</map>
+		</property>
+	</bean>
 </beans>
