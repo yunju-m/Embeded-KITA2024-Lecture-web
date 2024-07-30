@@ -5,8 +5,17 @@
 	
 	<!-- <bean id="hello" class="simpledi.bean.Hello" scope="prototype"> -->
 	<bean id="hello" class="simpledi.bean.Hello">
-		<property name="name" value="Spring" />
-		<property name="printer" ref="stringPrinter" />
+		<!-- 1. setter injection -->
+		<!-- <property name="name" value="Spring" />
+		<property name="printer" ref="stringPrinter" /> -->
+		
+		<!-- 2. constructor injection : index -->
+		<!-- <constructor-arg index="0" value="Spring" />
+		<constructor-arg index="1" ref="stringPrinter" /> -->
+		
+		<!-- 3. constructor injection : name -->
+		<constructor-arg name="name" value="Spring" />
+		<constructor-arg name="printer" ref="stringPrinter" />
 	</bean>
 	
 	<bean id="stringPrinter" class="simpledi.service.StringPrinter" />
