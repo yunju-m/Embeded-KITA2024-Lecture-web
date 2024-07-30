@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+	
+	<context:property-placeholder location="classpath:props/vovalues.properties" />
 	
 	<!-- <bean id="hello" class="simpledi.bean.Hello" scope="prototype"> -->
 	<bean id="hello" class="simpledi.bean.Hello">
@@ -24,15 +27,15 @@
 	<bean id="vo" class="simpledi.bean.VO">
 		<property name="hobbyList">
 			<list>
-				<value>축구</value>
-				<value>농구</value>
-				<value>야구</value>	
+				<value>${hobbyValue1}</value>
+				<value>${hobbyValue2}</value>
+				<value>${hobbyValue3}</value>
 			</list>
 		</property>
 		<property name="personMap">
 			<map>
-				<entry key="name" value="홍길동" />
-				<entry key="address" value="서울" />
+				<entry key="name" value="${personName}" />
+				<entry key="address" value="${personAddress}" />
 			</map>
 		</property>
 	</bean>
