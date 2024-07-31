@@ -2,8 +2,11 @@ package user.dao;
 
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import user.domain.User;
 
+@Repository("userDao")
 public class UserDaoImpl implements UserDao {
 
 	@Override

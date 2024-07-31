@@ -2,9 +2,12 @@ package user.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import user.dao.UserDao;
 import user.domain.User;
 
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
 	private UserDao userDao;
