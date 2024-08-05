@@ -31,4 +31,10 @@
 	</bean>
 	
 	<bean id="userService" class="mybatisuser.service.UserServiceImpl" />
+	
+	<bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="mapperInterface" value="mybatisuser.mapper.UserMapper" />
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+	</bean>
+	
 </beans>

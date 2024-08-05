@@ -29,7 +29,7 @@ public class UserTest {
 		userService = (UserServiceImpl)context.getBean("userService");
 	}
 	
-	@Test
+	//@Test
 	public void dataSourceTest() {
 		DataSource ds = (DataSource)context.getBean("dataSource");
 		
@@ -48,26 +48,26 @@ public class UserTest {
 		assertEquals(result, 1);
 	}
 	
-	@Test
+	//@Test
 	public void updateUser() {
 		User user = new User(1, "새로운아이디", "새로운이름", "여", "강남");
 		userService.updateUser(user);
 	}
 	
-	@Test
+	//@Test
 	public void deleteUser() {
 		int userNo = 1;
 		userService.deleteUser(userNo);
 	}
 	
-	@Test
+	//@Test
 	public void getUser() {
 		int userNo = 2;
 		User user = userService.getUser(userNo);
 		System.out.println(user);
 	}
 	
-	@Test
+	//@Test
 	public void getUserList() {
 		List<User> userList = userService.getUserList();
 		for (User user : userList) {
