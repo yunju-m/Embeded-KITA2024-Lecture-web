@@ -48,4 +48,11 @@
            </list>
        </property>
    </bean>
+   
+   <!-- View Resolver -->
+   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+   	<property name="prefix" value="/restboard/" />
+   	<property name="suffix" value=".html" />
+   </bean>
+   
 </beans>
