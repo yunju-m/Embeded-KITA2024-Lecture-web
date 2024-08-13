@@ -13,7 +13,7 @@
 		ORDER BY RBID DESC
 	</select>
 	
-	<select id="getRestBoard" parameterType="string" resultType="RestBoard">
+	<select id="getRestBoard" parameterType="int" resultType="RestBoard">
 		SELECT *
 		FROM RESTBOARD
 		WHERE RBID=#{rbid}
