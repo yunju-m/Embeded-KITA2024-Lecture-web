@@ -39,4 +39,13 @@
 	
 	<bean id="restBoardService" class="springrest.service.RestBoardServiceImpl" />
 
+	<!-- Message Converter -->
+	<!-- remove when JUnit Test -->
+   <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+       <property name="messageConverters">
+           <list>
+               <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+           </list>
+       </property>
+   </bean>
 </beans>
