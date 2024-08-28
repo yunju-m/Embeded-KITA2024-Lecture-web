@@ -14,7 +14,7 @@ public class TVMain {
 		context = new GenericXmlApplicationContext("/springdi/conf/applicationContext.xml");
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) { 
 		
 		TVMain tvmain = new TVMain();
 		
